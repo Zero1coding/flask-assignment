@@ -1,12 +1,12 @@
 [
   {
-    "id": 1,
-    "name": "Kapil",
-    "course": "B.Tech CSE"
+    "id": 401,
+    "name": "Task2 Updated User",
+    "role": "Editor"
   },
   {
-    "id": 2,
-    "name": "Amit",
-    "course": "B.Tech IT"
+    "id": 402,
+    "name": "New API User",
+    "role": "Viewer"
   }
 ]
