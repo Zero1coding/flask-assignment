@@ -32,3 +32,15 @@ def form():
 
 if __name__ == '__main__':
     app.run(debug=True)
+@app.route('/submittodoitem', methods=['POST'])
+def submit_todo_item():
+    itemName = request.form['itemName']
+    itemDescription = request.form['itemDescription']
+
+    collection.insert_one({
+        "itemName": itemName,
+        "itemDescription": itemDescription
+    })
+
+    return "To-Do item stored successfully"
+
