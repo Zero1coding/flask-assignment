@@ -3,12 +3,15 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
+
 client = MongoClient(
     "mongodb+srv://mrksrout_db_user:Mongo12345@cluster0.tlsegtu.mongodb.net/assignmentDB?retryWrites=true&w=majority"
 )
 
 db = client.assignmentDB
 collection = db.students
+
+
 
 @app.route('/', methods=['GET', 'POST'])
 def form():
@@ -30,8 +33,14 @@ def form():
 
     return render_template('form.html', error=error)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+
+@app.route('/todo')
+def todo_page():
+    return render_template('todo.html')
+
+
+
 @app.route('/submittodoitem', methods=['POST'])
 def submit_todo_item():
     itemName = request.form['itemName']
@@ -44,3 +53,7 @@ def submit_todo_item():
 
     return "To-Do item stored successfully"
 
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
